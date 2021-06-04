@@ -16,7 +16,7 @@ function App() {
       oscillatorA,
       playB,
       oscillatorB,
-      playRandom
+      randInt
 
   let oscC = {
     type: "triangle",
@@ -161,9 +161,7 @@ function App() {
       }
     }
 
-    let randInt
-
-    function getRandomInt(max) {
+    function getRandInt(max) {
       randInt = Math.floor(Math.random() * max)
     }
 
@@ -189,11 +187,10 @@ function App() {
       if(oscB.playing){
         playB()
       }
-      
     }
 
-    document.getElementById('playC').addEventListener('click', () => {
-      getRandomInt(7)
+    document.getElementById('button').addEventListener('click', () => {
+      getRandInt(7)
       if(randInt === 0){
         stopAll()
         playC()
@@ -217,45 +214,11 @@ function App() {
         playB()
       }
     })
-
-    // document.getElementById('playC').addEventListener('click', () => {
-    //   playC()
-    // })
-
-    // document.getElementById('playD').addEventListener('click', () => {
-    //   playD()
-    // })
-
-    // document.getElementById('playE').addEventListener('click', () => {
-    //   playE()
-    // })
-
-    // document.getElementById('playF').addEventListener('click', () => {
-    //   playF()
-    // })
-
-    // document.getElementById('playG').addEventListener('click', () => {
-    //   playG()
-    // })
-
-    // document.getElementById('playA').addEventListener('click', () => {
-    //   playA()
-    // })
-
-    // document.getElementById('playB').addEventListener('click', () => {
-    //   playB()
-    // })
   }
 
   return (
     <div className="App">
-      <button id="playC">C</button>
-      {/* <button id="playD">D</button>
-      <button id="playE">E</button>
-      <button id="playF">F</button>
-      <button id="playG">G</button>
-      <button id="playA">A</button>
-      <button id="playB">B</button> */}
+      <button id="button">Play Random Pitch</button>
     </div>
   )
 }
