@@ -162,7 +162,11 @@ function App() {
     }
 
     function getRandInt(max) {
+      let oldRandInt = randInt
       randInt = Math.floor(Math.random() * max)
+      if(randInt === oldRandInt){
+        getRandInt(7)
+      }
     }
 
     function stopAll(){
