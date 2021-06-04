@@ -15,7 +15,8 @@ function App() {
       playA,
       oscillatorA,
       playB,
-      oscillatorB
+      oscillatorB,
+      playRandom
 
   let oscC = {
     type: "triangle",
@@ -160,44 +161,101 @@ function App() {
       }
     }
 
+    let randInt
+
+    function getRandomInt(max) {
+      randInt = Math.floor(Math.random() * max)
+    }
+
+    function stopAll(){
+      if(oscC.playing){
+        playC()
+      }
+      if(oscD.playing){
+        playD()
+      }
+      if(oscE.playing){
+        playE()
+      }
+      if(oscF.playing){
+        playF()
+      }
+      if(oscG.playing){
+        playG()
+      }
+      if(oscA.playing){
+        playA()
+      }
+      if(oscB.playing){
+        playB()
+      }
+      
+    }
+
     document.getElementById('playC').addEventListener('click', () => {
-      playC()
+      getRandomInt(7)
+      if(randInt === 0){
+        stopAll()
+        playC()
+      } else if(randInt === 1){
+        stopAll()
+        playD()
+      } else if(randInt === 2){
+        stopAll()
+        playE()
+      } else if(randInt === 3){
+        stopAll()
+        playF()
+      } else if(randInt === 4){
+        stopAll()
+        playG()
+      } else if(randInt === 5){
+        stopAll()
+        playA()
+      } else if(randInt === 6){
+        stopAll()
+        playB()
+      }
     })
 
-    document.getElementById('playD').addEventListener('click', () => {
-      playD()
-    })
+    // document.getElementById('playC').addEventListener('click', () => {
+    //   playC()
+    // })
 
-    document.getElementById('playE').addEventListener('click', () => {
-      playE()
-    })
+    // document.getElementById('playD').addEventListener('click', () => {
+    //   playD()
+    // })
 
-    document.getElementById('playF').addEventListener('click', () => {
-      playF()
-    })
+    // document.getElementById('playE').addEventListener('click', () => {
+    //   playE()
+    // })
 
-    document.getElementById('playG').addEventListener('click', () => {
-      playG()
-    })
+    // document.getElementById('playF').addEventListener('click', () => {
+    //   playF()
+    // })
 
-    document.getElementById('playA').addEventListener('click', () => {
-      playA()
-    })
+    // document.getElementById('playG').addEventListener('click', () => {
+    //   playG()
+    // })
 
-    document.getElementById('playB').addEventListener('click', () => {
-      playB()
-    })
+    // document.getElementById('playA').addEventListener('click', () => {
+    //   playA()
+    // })
+
+    // document.getElementById('playB').addEventListener('click', () => {
+    //   playB()
+    // })
   }
 
   return (
     <div className="App">
       <button id="playC">C</button>
-      <button id="playD">D</button>
+      {/* <button id="playD">D</button>
       <button id="playE">E</button>
       <button id="playF">F</button>
       <button id="playG">G</button>
       <button id="playA">A</button>
-      <button id="playB">B</button>
+      <button id="playB">B</button> */}
     </div>
   )
 }
