@@ -10,7 +10,7 @@ function App() {
     playing: false
   }
 
-  const audioContext = new AudioContext()
+  var audioContext = new AudioContext()
 
   window.onload = function(){
     playC = function(){
@@ -26,11 +26,15 @@ function App() {
         oscC.playing = true
       }
     }
+
+    document.getElementById('playC').addEventListener('click', () => {
+      playC()
+    })
   }
 
   return (
     <div className="App">
-      <h1>sanity check</h1>
+      <button id="playC">play middle C</button>
     </div>
   )
 }
